@@ -25,3 +25,6 @@ cmake_install.cmake
 # Logs / temporary files
 *.log
 *.tmp
+
+# Local third-party dependencies
+/3rd_party/
