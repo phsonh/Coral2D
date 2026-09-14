@@ -1,0 +1,17 @@
+anm SpawnAni(int x,int y,int color){
+	// 选择贴图
+	Set_Texture("");
+	Set_PosX(x);
+	Set_PosY(y);
+	// 设定横向缩放
+	Set_ScaleX(5);
+	// 设定纵向缩放
+	Set_ScaleY(5);
+	// 未来8帧内将横向缩放线性插值为1
+	Tween_ScaleX(1,8,1);
+	// 未来8帧内将纵向缩放线性插值为1
+	Tween_ScaleY(1,8,1);
+	// 等待8帧
+	Wait(8);
+	Jump(NormalAni)
+}
