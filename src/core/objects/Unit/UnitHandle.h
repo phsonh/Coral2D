@@ -12,8 +12,10 @@ namespace core::object::Unit {
 		std::uint32_t index = invalid_index;   // 槽位索引
 		std::uint64_t generation = 0;          // 槽位代数
 		
-		// 判断句柄是否具有有效的槽位索引
-		[[nodiscard]] bool is_valid() const noexcept;
+		// generation == 0 永远不会由 UnitPool 生成，可用于识别默认句柄。
+		[[nodiscard]] constexpr bool is_valid() const noexcept {
+			return index != invalid_index && generation != 0;
+		}
 
 		// 定义两个UnitHandle结构体的比较运算
 		friend bool operator==(UnitHandle const&, UnitHandle const&) = default;

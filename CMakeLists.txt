@@ -145,3 +145,27 @@ add_dependencies(
     ${PROJECT_NAME}
     copy_scripts
 )
+
+
+# ==============================
+# Tests
+# ==============================
+
+include(CTest)
+
+if(BUILD_TESTING)
+    add_executable(
+        UnitPoolTests
+        tests/UnitPoolTests.cpp
+        src/core/objects/Unit/Unit.cpp
+        src/core/objects/Unit/UnitPool.cpp
+    )
+
+    target_include_directories(
+        UnitPoolTests
+        PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    )
+
+    add_test(NAME UnitPoolTests COMMAND UnitPoolTests)
+endif()
